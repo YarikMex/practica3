@@ -35,9 +35,9 @@ Route::get('/inicio2', function () {
     })->middleware(['auth', 'verified'])->name('horarios');
     
     //ruta proyecto indices
-    Route::get('/proyectosInd',function (){
-        return view('proyectosInd');
-    })->middleware(['auth', 'verified'])->name('proyectosInd');
+    Route::get('/proyectosIndividuales',function (){
+        return view('proyectosIndividuales');
+    })->middleware(['auth', 'verified'])->name('proyectosIndividuales');
         //ruta Periodo
         Route::get('/periodo',function (){
             return view('periodo');
