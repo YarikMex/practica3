@@ -29,7 +29,7 @@
 
     {{-- PROYECTOS IND. --}}
     <li class="nav-item" role="presentation">
-        <a href="{{route('proyectosInd')}}" class="nav-link" 
+        <a href="{{route('proyectosIndividuales')}}" class="nav-link" 
             >Proyectos individuales </a>
     </li>
 
