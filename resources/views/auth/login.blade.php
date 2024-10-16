@@ -1,4 +1,4 @@
-@vite('resources/css/app.css')
+@vite('resources/sass/app.scss')
 @vite('resources/js/app.js')
 
 <x-guest-layout>
