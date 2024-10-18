@@ -1,11 +1,9 @@
 @extends('inicio2')
-@extends('plantillas/plantilla2')
 
 {{-- CONTENIDO1 --}}
 @section('contenido1')
-
+    {{-- Si deseas mostrar la tabla aquí --}}
     @include('plazas.tablahtml')
-
 @endsection
 
 {{-- CONTENIDO2 --}}

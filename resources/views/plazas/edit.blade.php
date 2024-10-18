@@ -1,14 +1,17 @@
-@extends('plantillas/plantilla2')
+@extends('inicio2')
 
+{{-- CONTENIDO1 --}}
 @section('contenido1')
+    {{-- Si deseas mostrar la tabla aquí --}}
     @include('plazas.tablahtml')
 @endsection
 
+{{-- CONTENIDO2 --}}
 @section('contenido2')
 
 <h1>Editar Plaza</h1>
 
-<form action="{{ route('plazas.update', $plaza->idPlaza)}}" method="POST">
+<form action="{{ route('plazas.update', $plaza->idPlaza) }}" method="POST">
     @csrf
 
     <div class="row mb-3">
