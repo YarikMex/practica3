@@ -1,6 +1,6 @@
-@extends('inicio2')
-@extends('plantillas/plantilla2')
+    @extends('inicio2')
+    @extends('plantillas/plantilla2')
 
-@section('contenido1')
-    @include('plazas.tablahtml')
-@endsection
+    @section('contenido1')
+        @include('plazas.tablahtml')
+    @endsection
