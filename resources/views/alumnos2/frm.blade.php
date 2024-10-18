@@ -89,20 +89,24 @@
         </div>
     </div>
 
-    <!-- Carrera (relación con tabla de carrera) -->
-    <div class="row mb-3">
-        <label for="carrera_id" class="col-sm-2 col-form-label">Carrera</label>
-        <div class="col-sm-10">
-          <select class="form-select" id="carrera_id" name="carrera_id" required {{ $des }}>
+  <!-- Carrera (relación con tabla de carrera) -->
+@if ($accion != 'D')
+<div class="row mb-3">
+    <label for="carrera_id" class="col-sm-2 col-form-label">Carrera</label>
+    <div class="col-sm-10">
+        <select class="form-select" id="carrera_id" name="carrera_id" required {{ $des }}>
             @foreach ($carreras as $carrera)
-              <option value="{{ $carrera->id }}" {{ old('carrera_id', $alumno->carrera_id ?? '') == $carrera->id ? 'selected' : '' }}>{{ $carrera->nombre }}</option>
+                <option value="{{ $carrera->id }}" {{ old('carrera_id', $alumno->carrera_id ?? '') == $carrera->id ? 'selected' : '' }}>
+                    {{ $carrera->nombre }}
+                </option>
             @endforeach
-          </select>
-          @error("carrera_id")
-          <p class="text-danger">error en: {{ $message }}</p>
-          @enderror
-        </div>
+        </select>
+        @error("carrera_id")
+        <p class="text-danger">error en: {{ $message }}</p>
+        @enderror
     </div>
+</div>
+@endif
 
     <div class="row mb-3">
         <div class="col-sm-10 offset-sm-2">
