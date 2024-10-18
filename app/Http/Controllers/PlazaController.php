@@ -53,8 +53,11 @@ class PlazaController extends Controller
     public function edit(Plaza $plaza)
     {
         $plazas = Plaza::paginate(10);
-        $accion = 'E'; // Para mostrar el formulario de edición
-        return view('plazas.tablahtml', compact('plazas', 'plaza', 'accion'));
+        $accion = 'E';
+        $txtbtn = 'Actualizar';
+        $des = '';
+
+        return view('plazas.frm', compact('plazas', 'plaza', 'accion', 'txtbtn', 'des'));
     }
 
     public function update(Request $request, Plaza $plaza)
