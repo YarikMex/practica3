@@ -26,7 +26,8 @@
     </div>
 </form>
 
-<!-- Incluir la tabla de plazas debajo del formulario -->
+<!-- Aquí está la tabla de plazas -->
+<h2 class="mt-5">Lista de Plazas</h2>
 @include('plazas.tablahtml')
 
 @endsection
