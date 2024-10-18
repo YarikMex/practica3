@@ -1,15 +1,17 @@
 @extends('plantillas/plantilla2')
 
 {{-- CONTENIDO1 --}}
-
-
-
-
 @section('contenido1')
+
+    @include('plazas.tablahtml')
+
+@endsection
+
+{{-- CONTENIDO2 --}}
+@section('contenido2')
 
 <h1>Insertar Plaza</h1>
 
-<!-- Formulario para insertar una nueva plaza -->
 <form action="{{ route('plazas.store') }}" method="POST">
     @csrf
 
@@ -29,10 +31,7 @@
           <button type="submit" class="btn btn-primary">Guardar</button>
         </div>
     </div>
-</form>
 
-<!-- Aquí está la tabla de plazas -->
-<h2 class="mt-5">Lista de Plazas</h2>
-@include('plazas.tablahtml')
+</form>
 
 @endsection

@@ -1,4 +1,4 @@
-@extends('inicio2')
+@extends('plantillas/plantilla2')
 
 {{-- CONTENIDO1 --}}
 @section('contenido1')
