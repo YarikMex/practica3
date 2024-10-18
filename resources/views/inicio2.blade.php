@@ -7,7 +7,6 @@
     <title>Inicio 2</title>
     {{-- vite sirve el boostrap --}}
     @vite(['resources/js/app.js'])
-    
 </head>
 <body>
     <div class="container text-center">
@@ -16,31 +15,36 @@
             @include("menu2")
           </div>
         </div>
+
         <div class="row">
           <div class="col">
             @yield("contenido1")
 
             @empty($__env->yieldContent('contenido1'))
             <p class="center-text">Practica 2</p>
-        @endempty
-            <footer class="footer mt-auto py-3 bg-light">
-              <div class="container">
-              <span class="text-muted">
-                  
-                  @auth
-                  {{-- Mostrar información del usuario autenticado --}}
-                  Usuario: {{ Auth::user()->name }} |
-                  Correo: {{ Auth::user()->email }}
-                  
-                  @endauth
-              </span>
-              </div>
-          </footer>
-        
+            @endempty
           </div>
-          
         </div>
+
+        <div class="row">
+          <div class="col">
+            @yield("contenido2")
+
+            @empty($__env->yieldContent('contenido2'))
+            <p class="center-text">Contenido no disponible.</p>
+            @endempty
+          </div>
+        </div>
+
+        <footer class="footer mt-auto py-3 bg-light">
+          <div class="container">
+            <span class="text-muted">
+                @auth
+                Usuario: {{ Auth::user()->name }} | Correo: {{ Auth::user()->email }}
+                @endauth
+            </span>
+          </div>
+        </footer>
       </div>
-      
 </body>
 </html>
