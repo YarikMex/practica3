@@ -13,6 +13,13 @@
             <li><a class="dropdown-item" href="{{ route('alumnos.index') }}">Alumnos</a></li>
             <li><a class="dropdown-item" href="{{ route('plazas.index') }}">Plazas</a></li>
             <li><a class="dropdown-item" href="{{ route('puestos.index') }}">Puestos</a></li>
+             {{-- Opciones que aún no están implementadas pero visibles --}}
+             <li><a class="dropdown-item disabled" href="#">Periodos</a></li>
+             <li><a class="dropdown-item disabled" href="#">Personal</a></li>
+             <li><a class="dropdown-item disabled" href="#">Departamentos</a></li>
+             <li><a class="dropdown-item disabled" href="#">Carreras</a></li>
+             <li><a class="dropdown-item disabled" href="#">Retículas</a></li>
+             <li><a class="dropdown-item disabled" href="#">Materias</a></li>
         </ul>
     </li>
 
