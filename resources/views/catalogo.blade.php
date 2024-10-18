@@ -35,7 +35,7 @@ nav a:hover {
   <div class="d-flex">
     <nav class="nav flex-column bg-light p-3" style="width: 200px; height: 100vh;">
         <a class="nav-link active" href="#">Periodos</a>
-        <a class="nav-link" href="#">Plazas</a>
+        <a class="nav-link" href="/plazas.index">Plazas</a>
         <a class="nav-link" href="#">Puestos</a>
         <a class="nav-link" href="#">Personal</a>
         <a class="nav-link" href="#">Departamentos</a>
