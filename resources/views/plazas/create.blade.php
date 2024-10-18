@@ -1,3 +1,7 @@
+@extends('plantillas/plantilla2')
+
+{{-- CONTENIDO1 --}}
+
 
 
 
