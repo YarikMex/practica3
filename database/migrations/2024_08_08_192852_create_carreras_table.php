@@ -1,5 +1,4 @@
 <?php
-
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -13,12 +12,13 @@ return new class extends Migration
     {
         Schema::create('carreras', function (Blueprint $table) {
             $table->id();
-            $table->string("nombrecarrera",100)->unique();
-            $table->string("nombremediano",100)->unique();
-            $table->string("nombrecorto",100)->unique();
-            $table->foreignId("depto_id")->constrained('deptos', 'idDepto')->onDelete('cascade'); // Clave foránea correcta
-            
-            $table->timestamps();
+            $table->string("nombreCarrera", 100)->unique();  // Ajuste a camelCase
+            $table->string("nombreMediano", 100)->unique();  // Ajuste a camelCase
+            $table->string("nombreCorto", 100)->unique();    // Ajuste a camelCase
+            $table->foreignId("depto_id")                    // Clave foránea, correcto
+                  ->constrained('deptos', 'idDepto')
+                  ->onDelete('cascade');                    // Eliminar carreras si se elimina el depto
+            $table->timestamps();                           // Timestamps (created_at, updated_at)
         });
     }
 
@@ -30,3 +30,4 @@ return new class extends Migration
         Schema::dropIfExists('carreras');
     }
 };
+
