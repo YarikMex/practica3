@@ -5,6 +5,8 @@ use App\Http\Controllers\PlazaController;
 use App\Http\Controllers\AlumnoController;
 use App\Http\Controllers\PuestoController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\DeptoController;
+
 
 // Rutas de Inicio
 Route::get('/', function () {
@@ -157,6 +159,16 @@ Route::get('/plazas/{plaza}/edit', [PlazaController::class, 'edit'])->name('plaz
 Route::post('/plazas/{plaza}', [PlazaController::class, 'update'])->name('plazas.update');
 Route::post('/plazas/{plaza}/destroy', [PlazaController::class, 'destroy'])->name('plazas.destroy');
 Route::get('/plazas/{plaza}', [PlazaController::class, 'show'])->name('plazas.show');
+
+//Rtuas de depto en Crud
+
+Route::get('/deptos.index', [DeptoController::class, 'index'])->name('deptos.index');
+Route::get('/deptos.create', [DeptoController::class, 'create'])->name('deptos.create');
+Route::post('/deptos', [DeptoController::class, 'store'])->name('deptos.store');
+Route::get('/deptos.edit.{depto}', [DeptoController::class, 'edit'])->name('deptos.edit');
+Route::post('/deptos.update/{depto}', [DeptoController::class, 'update'])->name('deptos.update');
+Route::post('/deptos.destroy.{depto}', [DeptoController::class, 'destroy'])->name('deptos.destroy');
+Route::get('/deptos.show/{depto}', [DeptoController::class, 'show'])->name('deptos.show');
 
 
 
