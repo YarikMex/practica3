@@ -17,18 +17,18 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($deptos as $depto)
+            @foreach ($depto as $dept)
             <tr>
-                <td scope="row">{{ $depto->idDepto }}</td>
-                <td>{{ $depto->nombredepto }}</td>
-                <td>{{ $depto->nombremediano }}</td>
-                <td>{{ $depto->nombrecorto }}</td>
-                <td><a href="{{ route('deptos.edit', $depto->idDepto) }}" class="btn button btn-success">Editar</a></td>
-                <td><a href="{{ route('deptos.show', $depto->idDepto) }}" class="btn button btn-danger">Eliminar</a></td>
-                <td><a href="{{ route('deptos.show', $depto->idDepto) }}" class="btn button btn-primary">Ver</a></td>
+                <td scope="row">{{ $dept->idDepto }}</td>
+                <td>{{ $dept->nombredepto }}</td>
+                <td>{{ $dept->nombremediano }}</td>
+                <td>{{ $dept->nombrecorto }}</td>
+                <td><a href="{{ route('deptos.edit', $dept->idDepto) }}" class="btn button btn-success">Editar</a></td>
+                <td><a href="{{ route('deptos.show', $dept->idDepto) }}" class="btn button btn-danger">Eliminar</a></td>
+                <td><a href="{{ route('deptos.show', $dept->idDepto) }}" class="btn button btn-primary">Ver</a></td>
             </tr>
             @endforeach
         </tbody>
     </table>
-    {{ $deptos->links() }}
+    {{ $dept->links() }}
 </div>

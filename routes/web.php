@@ -163,6 +163,7 @@ Route::get('/plazas/{plaza}', [PlazaController::class, 'show'])->name('plazas.sh
 //Rtuas de depto en Crud
 
 Route::get('/deptos.index', [DeptoController::class, 'index'])->name('deptos.index');
+
 Route::get('/deptos.create', [DeptoController::class, 'create'])->name('deptos.create');
 Route::post('/deptos', [DeptoController::class, 'store'])->name('deptos.store');
 Route::get('/deptos.edit.{depto}', [DeptoController::class, 'edit'])->name('deptos.edit');
