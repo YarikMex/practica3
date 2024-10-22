@@ -17,7 +17,7 @@
              <li><a class="dropdown-item " href="{{ route('deptos.index') }}">Departamentos</a></li>
              <li><a class="dropdown-item disabled" href="#">Personal</a></li>
              <li><a class="dropdown-item disabled" href="#">Departamentos</a></li>
-             <li><a class="dropdown-item disabled" href="#">Carreras</a></li>
+             <li><a class="dropdown-item" href="carreras.index">Carreras</a></li>
              <li><a class="dropdown-item disabled" href="#">Retículas</a></li>
              <li><a class="dropdown-item disabled" href="#">Materias</a></li>
         </ul>
