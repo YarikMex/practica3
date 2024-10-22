@@ -170,7 +170,7 @@ Route::get('/deptos/{depto}/edit', [DeptoController::class, 'edit'])->name('dept
 Route::post('/plazas/{plaza}', [PlazaController::class, 'update'])->name('plazas.update');
 Route::post('/deptos/{depto}/destroy', [DeptoController::class, 'destroy'])->name('deptos.destroy');
 
-Route::get('/deptos.show/{depto}', [DeptoController::class, 'show'])->name('deptos.show');
+Route::get('/deptos/{depto}', [DeptoController::class, 'show'])->name('deptos.show');
 
 
 
