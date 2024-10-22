@@ -117,7 +117,7 @@ class DeptoController extends Controller
         $depto->delete();
 
         // Obtener la lista de departamentos actualizada con paginación para redirigir
-        $deptos = Depto::paginate(10);
+        
         return redirect()->route('deptos.index', compact('deptos'))->with('success', 'Departamento eliminado correctamente.');
     }
 }
