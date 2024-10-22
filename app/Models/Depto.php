@@ -10,10 +10,16 @@ class Depto extends Model
 {
     use HasFactory;
 
-    public function carreras(): HasMany{
+    // Campos que se pueden llenar masivamente
+    protected $fillable = [
+        'nombredepto',
+        'nombremediano',
+        'nombrecorto',
+    ];
+
+    // Relación: Un departamento tiene muchas carreras
+    public function carreras(): HasMany
+    {
         return $this->hasMany(Carrera::class);
-
     }
-
-
 }

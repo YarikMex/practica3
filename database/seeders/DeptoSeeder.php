@@ -3,10 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Depto;
-use App\Models\Alumno;
-use App\Models\Carrera;
 use Illuminate\Database\Seeder;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class DeptoSeeder extends Seeder
 {
@@ -15,10 +12,6 @@ class DeptoSeeder extends Seeder
      */
     public function run(): void
     {
-        Depto::factory(1)->has(
-            Carrera::factory(3)->has( Alumno::factory(4))
-
-        )->create();
-        
+        Depto::factory(10)->create(); // Crear 10 departamentos de ejemplo
     }
 }

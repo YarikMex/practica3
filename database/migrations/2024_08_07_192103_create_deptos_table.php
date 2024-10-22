@@ -12,14 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('deptos', function (Blueprint $table) {
-            $table->id();
-           
-            $table->string("iddepto",3)->unique();
-            $table->string("nombredepto",100)->unique();
-            $table->string("nombremediano",100)->unique();
-            $table->string("nombrecorto",100)->unique();
-           
-            $table->timestamps();
+            $table->id('idDepto'); // ID autoincremental para Deptos
+            $table->string("nombredepto", 100)->unique();
+            $table->string("nombremediano", 100)->unique();
+            $table->string("nombrecorto", 100)->unique();
+            $table->timestamps(); // Timestamps para created_at y updated_at
         });
     }
 

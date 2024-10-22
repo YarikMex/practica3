@@ -16,15 +16,11 @@ class DeptoFactory extends Factory
      */
     public function definition(): array
     {
-        $titulo=fake()->unique()->jobTitle();
+        $titulo = fake()->unique()->jobTitle();
         return [
-                 
-       
-            "iddepto"=>fake()->unique()->bothify("?##"),
-            "nombredepto"=>$titulo,
-            "nombremediano"=>fake()->unique()->lexify(str_repeat("?",15)),
-            "nombrecorto"=>substr($titulo,0,5),
-             
+            "nombredepto" => $titulo,
+            "nombremediano" => fake()->unique()->lexify(str_repeat("?", 15)),
+            "nombrecorto" => substr($titulo, 0, 5),
         ];
     }
 }

@@ -7,59 +7,58 @@ use Illuminate\Http\Request;
 
 class DeptoController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    // Validaciones comunes para las operaciones CRUD
+    public $val;
+
+    public function __construct() {
+        $this->val = [
+            'nombredepto' => 'required|string|max:100|unique:deptos,nombredepto',
+            'nombremediano' => 'required|string|max:100|unique:deptos,nombremediano',
+            'nombrecorto' => 'required|string|max:100|unique:deptos,nombrecorto',
+        ];
+    }
+
     public function index()
     {
-        //
+        $deptos = Depto::paginate(10);
+        return view('deptos.index', compact('deptos'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+        $depto = new Depto;
+        $accion = 'C';
+        $txtbtn = 'Guardar';
+        $des = '';
+
+        return view('deptos.frm', compact('depto', 'accion', 'txtbtn', 'des'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate($this->val);
+        Depto::create($validatedData);
+        return redirect()->route('deptos.index')->with('success', 'Departamento creado correctamente.');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Depto $depto)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(Depto $depto)
     {
-        //
+        $accion = 'E';
+        $txtbtn = 'Actualizar';
+        $des = '';
+        return view('deptos.frm', compact('depto', 'accion', 'txtbtn', 'des'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, Depto $depto)
     {
-        //
+        $validatedData = $request->validate($this->val);
+        $depto->update($validatedData);
+        return redirect()->route('deptos.index')->with('success', 'Departamento actualizado correctamente.');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Depto $depto)
     {
-        //
+        $depto->delete();
+        return redirect()->route('deptos.index')->with('success', 'Departamento eliminado correctamente.');
     }
 }
