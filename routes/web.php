@@ -168,7 +168,7 @@ Route::get('/deptos.create', [DeptoController::class, 'create'])->name('deptos.c
 Route::post('/deptos', [DeptoController::class, 'store'])->name('deptos.store');
 Route::get('/deptos.edit.{depto}', [DeptoController::class, 'edit'])->name('deptos.edit');
 Route::post('/deptos.update/{depto}', [DeptoController::class, 'update'])->name('deptos.update');
-Route::post('/deptos.destroy.{depto}', [DeptoController::class, 'destroy'])->name('deptos.destroy');
+Route::delete('/deptos/{depto}', [DeptoController::class, 'destroy'])->name('deptos.destroy');
 Route::get('/deptos.show/{depto}', [DeptoController::class, 'show'])->name('deptos.show');
 
 
