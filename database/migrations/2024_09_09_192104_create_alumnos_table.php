@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string("sexo",200);
         
             $table->timestamps();
-            $table->foreignId("carrera_id")->constrained();
+            $table->foreignId('carrera_id')->constrained()->onDelete('cascade');  // Relación con Carrera
         });
     }
 

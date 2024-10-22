@@ -17,13 +17,11 @@ class CarreraFactory extends Factory
      */
     public function definition(): array
     {
-        $titulo=fake()->unique()->jobTitle();
         return [
-            "idcarrera"=>fake()->bothify("????####"),
-            "nombreCarrera"=>$titulo,
-            "nombremediano"=>fake()->lexify(str_repeat("?",15)),
-            "nombrecorto"=>substr($titulo,0,5),
-            "depto_id"=>Depto::factory(),            //
+            'nombreCarrera' => $this->faker->unique()->jobTitle(),  // Genera un nombre de carrera único
+            'nombreMediano' => $this->faker->lexify(str_repeat('?', 50)),  // Genera un nombre mediano aleatorio de 50 caracteres
+            'nombreCorto' => $this->faker->lexify(str_repeat('?', 5)),  // Genera un nombre corto de 5 caracteres
+            'depto_id' => Depto::factory(),  // Relación con el departamento, genera un departamento relacionado
         ];
     }
 }

@@ -1,11 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DeptoController;
 use App\Http\Controllers\PlazaController;
 use App\Http\Controllers\AlumnoController;
 use App\Http\Controllers\PuestoController;
+use App\Http\Controllers\CarreraController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\DeptoController;
 
 
 // Rutas de Inicio
@@ -170,7 +171,15 @@ Route::post('/deptos/{depto}', [DeptoController::class, 'update'])->name('deptos
 Route::post('/deptos/{depto}/destroy', [DeptoController::class, 'destroy'])->name('deptos.destroy');
 Route::get('/deptos/{depto}', [DeptoController::class, 'show'])->name('deptos.show');
 
-
+//Carrera
+// Rutas para CRUD de Carreras
+Route::get('/carreras.index', [CarreraController::class, 'index'])->name('carreras.index');
+Route::get('/carreras/create', [CarreraController::class, 'create'])->name('carreras.create');
+Route::post('/carreras', [CarreraController::class, 'store'])->name('carreras.store');
+Route::get('/carreras/{carrera}/edit', [CarreraController::class, 'edit'])->name('carreras.edit');
+Route::post('/carreras/{carrera}', [CarreraController::class, 'update'])->name('carreras.update');
+Route::post('/carreras/{carrera}/destroy', [CarreraController::class, 'destroy'])->name('carreras.destroy');
+Route::get('/carreras/{carrera}', [CarreraController::class, 'show'])->name('carreras.show');
 
 Route::get('/dashboard', function () {
     return view('inicio2');
