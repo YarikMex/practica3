@@ -1,7 +1,16 @@
+@extends('inicio2')
+
+{{-- CONTENIDO1 --}}
+@section('contenido1')
+    @include('deptos.tablahtml')
+@endsection
+
+{{-- CONTENIDO2 --}}
+@section('contenido2')
+<h1>Ver Todos los Datos del Departamento</h1>
 <form action="{{ route('deptos.destroy', $depto) }}" method="POST">
   @csrf
-  @method('POST') <!-- Mantenemos el método POST como en Alumnos -->
-  
+
   <!-- Nombre Completo -->
   <div class="row mb-3">
       <label for="nombredepto" class="col-sm-3 col-form-label">Nombre Completo</label>
@@ -26,7 +35,7 @@
       </div>
   </div>
 
-  <!-- Botón para eliminar -->
   <button type="submit" class="btn btn-danger">Confirma la Eliminación</button>
   <a href="{{ route('deptos.index') }}" class="btn btn-primary">Regresar</a>
 </form>
+@endsection
