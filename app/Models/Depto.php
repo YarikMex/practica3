@@ -10,11 +10,10 @@ class Depto extends Model
 {
     use HasFactory;
 
-    // Especificar la clave primaria
+    // Especificar la clave primaria personalizada
     protected $primaryKey = 'idDepto'; 
-
-    // Si no usas 'id' como clave primaria, asegurarte que no es auto-incremental (opcional)
-    public $incrementing = true; // Solo si tu idDepto es auto-incremental, mantenlo en true
+    public $incrementing = true; // Clave primaria es auto-incremental
+    protected $keyType = 'int';  // Tipo de la clave primaria es 'int'
 
     // Campos que se pueden llenar masivamente
     protected $fillable = [

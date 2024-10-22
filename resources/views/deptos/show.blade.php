@@ -21,7 +21,7 @@
 
   <!-- Nombre Completo del Departamento -->
   <div class="row mb-3">
-    <label for="nombredepto" class="col-sm-3 col-form-label">Nombre Completo</label>
+    <label for="nombredepto" class="col-sm-3 col-form-label">Nombre Completo del Departamento</label>
     <div class="col-sm-9">
       <input type="text" class="form-control" id="nombredepto" name="nombredepto" disabled value="{{ $depto->nombredepto }}">
     </div>
@@ -29,7 +29,7 @@
 
   <!-- Nombre Mediano del Departamento -->
   <div class="row mb-3">
-    <label for="nombremediano" class="col-sm-3 col-form-label">Nombre Mediano</label>
+    <label for="nombremediano" class="col-sm-3 col-form-label">Nombre Mediano del Departamento</label>
     <div class="col-sm-9">
       <input type="text" class="form-control" id="nombremediano" name="nombremediano" disabled value="{{ $depto->nombremediano }}">
     </div>
@@ -37,7 +37,7 @@
 
   <!-- Nombre Corto del Departamento -->
   <div class="row mb-3">
-    <label for="nombrecorto" class="col-sm-3 col-form-label">Nombre Corto</label>
+    <label for="nombrecorto" class="col-sm-3 col-form-label">Nombre Corto del Departamento</label>
     <div class="col-sm-9">
       <input type="text" class="form-control" id="nombrecorto" name="nombrecorto" disabled value="{{ $depto->nombrecorto }}">
     </div>
