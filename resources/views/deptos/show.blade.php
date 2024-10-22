@@ -8,7 +8,8 @@
 {{-- CONTENIDO2 --}}
 @section('contenido2')
 <h1>Ver Todos los Datos del Departamento</h1>
-<form action="{{ route('deptos.destroy', $depto->idDepto) }}" method="POST"> <!-- Usamos $depto->idDepto para el ID correcto -->
+<form action="{{ route('deptos.destroy', $depto) }}" method="POST">
+  <!-- Usamos $depto->idDepto para el ID correcto -->
     @csrf
     
     
