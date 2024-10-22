@@ -9,13 +9,9 @@
 
     <form action="{{ $accion == 'C' ? route('deptos.store') : ($accion == 'E' ? route('deptos.update', $depto->idDepto) : route('deptos.destroy', $depto)) }}" method="POST">
         @csrf
-        @if($accion != 'C')
-            @method('PUT') <!-- Necesario para la edición -->
-        @endif
-
-        <!-- Nombre del Departamento -->
+        <!-- Nombre Completo del Departamento -->
         <div class="row mb-3">
-            <label for="nombredepto" class="col-sm-2 col-form-label">Nombre del Departamento</label>
+            <label for="nombredepto" class="col-sm-2 col-form-label">Nombre Completo</label>
             <div class="col-sm-10">
               <input type="text" class="form-control" id="nombredepto" name="nombredepto" required value="{{ old('nombredepto', $depto->nombredepto ?? '') }}" {{ $des }}>
               @error("nombredepto")
