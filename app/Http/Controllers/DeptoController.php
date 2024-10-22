@@ -69,12 +69,16 @@ class DeptoController extends Controller
 
     public function update(Request $request, Depto $depto)
     {
-        // Validar los datos actualizados
-        $validatedData = $request->validate($this->val);
-        
-        // Actualizar el registro de Departamento
+        // Validar los datos entrantes
+        $validatedData = $request->validate([
+            'nombredepto' => 'required|string|max:100|unique:deptos,nombredepto,' . $depto->idDepto . ',idDepto',
+            'nombremediano' => 'required|string|max:100|unique:deptos,nombremediano,' . $depto->idDepto . ',idDepto',
+            'nombrecorto' => 'required|string|max:100|unique:deptos,nombrecorto,' . $depto->idDepto . ',idDepto',
+        ]);
+    
+        // Actualizar el registro
         $depto->update($validatedData);
-
+    
         return redirect()->route('deptos.index')->with('success', 'Departamento actualizado correctamente.');
     }
 
