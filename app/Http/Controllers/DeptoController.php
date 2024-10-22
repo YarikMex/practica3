@@ -113,11 +113,8 @@ class DeptoController extends Controller
      */
     public function destroy(Depto $depto)
     {
-        // Eliminar el registro de Depto
         $depto->delete();
-
-        // Obtener la lista de departamentos actualizada con paginación para redirigir
-        
-        return redirect()->route('deptos.index', compact('deptos'))->with('success', 'Departamento eliminado correctamente.');
+        return redirect()->route('deptos.index')->with('success', 'Departamento eliminado correctamente.');
     }
+    
 }
