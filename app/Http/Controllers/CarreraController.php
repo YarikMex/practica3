@@ -35,7 +35,7 @@ class CarreraController extends Controller
     public function create()
     {
         $carreras = Carrera::paginate(10); 
-        $depto = Depto::all(); // Obtener todos los departamentos
+        $deptos = Depto::all(); // Obtener todos los departamentos
         $carrera = new Carrera;
         $accion = 'C';
         $txtbtn = 'Guardar';
