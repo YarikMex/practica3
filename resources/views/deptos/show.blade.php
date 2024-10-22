@@ -8,7 +8,7 @@
 {{-- CONTENIDO2 --}}
 @section('contenido2')
 <h1>Ver Todos los Datos del Departamento</h1>
-<form action="{{ route('deptos.destroy', $depto) }}" method="POST">
+<form action="{{route('deptos.destroy', $depto)}}" method="POST">
   @csrf
 
   <!-- Nombre Completo -->
