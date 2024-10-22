@@ -23,10 +23,11 @@ class Carrera extends Model
     protected $primaryKey = 'id';
 
     // Relación con el modelo Depto
-    public function depto(): BelongsTo
+    public function depto()
     {
-        return $this->belongsTo(Depto::class);
+        return $this->belongsTo(Depto::class, 'depto_id', 'idDepto');
     }
+    
 
     // Relación con el modelo Alumno
     public function alumnos(): HasMany

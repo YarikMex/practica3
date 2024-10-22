@@ -20,7 +20,7 @@
             <tr>
                 <td scope="row">{{ $carrera->id }}</td>
                 <td>{{ $carrera->nombreCarrera }}</td>
-                <td>{{ $carrera->depto->nombredepto }}</td>
+                <td>{{ $carrera->depto ? $carrera->depto->nombredepto : 'Sin departamento' }}</td>
                 <td><a href="{{route('carreras.edit', $carrera->id)}}" class="btn button btn-success">Editar</a></td>
                 <td><a href="{{route('carreras.show', $carrera->id)}}" class="btn button btn-danger">Eliminar</a></td>
                 <td><a href="{{route('carreras.show', $carrera->id)}}" class="btn button btn-primary">Ver</a></td>
