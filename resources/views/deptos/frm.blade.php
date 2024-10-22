@@ -9,9 +9,13 @@
 
     <form action="{{ $accion == 'C' ? route('deptos.store') : ($accion == 'E' ? route('deptos.update', $depto->idDepto) : route('deptos.destroy', $depto)) }}" method="POST">
         @csrf
-        <!-- Nombre Completo del Departamento -->
+        @if($accion != 'C')
+            @method('PUT') <!-- Necesario para la edición -->
+        @endif
+
+        <!-- Nombre del Departamento -->
         <div class="row mb-3">
-            <label for="nombredepto" class="col-sm-2 col-form-label">Nombre Completo del Departamento</label>
+            <label for="nombredepto" class="col-sm-2 col-form-label">Nombre del Departamento</label>
             <div class="col-sm-10">
               <input type="text" class="form-control" id="nombredepto" name="nombredepto" required value="{{ old('nombredepto', $depto->nombredepto ?? '') }}" {{ $des }}>
               @error("nombredepto")
@@ -22,7 +26,7 @@
 
         <!-- Nombre Mediano del Departamento -->
         <div class="row mb-3">
-            <label for="nombremediano" class="col-sm-2 col-form-label">Nombre Mediano del Departamento</label>
+            <label for="nombremediano" class="col-sm-2 col-form-label">Nombre Mediano</label>
             <div class="col-sm-10">
               <input type="text" class="form-control" id="nombremediano" name="nombremediano" required value="{{ old('nombremediano', $depto->nombremediano ?? '') }}" {{ $des }}>
               @error("nombremediano")
@@ -33,7 +37,7 @@
 
         <!-- Nombre Corto del Departamento -->
         <div class="row mb-3">
-            <label for="nombrecorto" class="col-sm-2 col-form-label">Nombre Corto del Departamento</label>
+            <label for="nombrecorto" class="col-sm-2 col-form-label">Nombre Corto</label>
             <div class="col-sm-10">
               <input type="text" class="form-control" id="nombrecorto" name="nombrecorto" required value="{{ old('nombrecorto', $depto->nombrecorto ?? '') }}" {{ $des }}>
               @error("nombrecorto")
