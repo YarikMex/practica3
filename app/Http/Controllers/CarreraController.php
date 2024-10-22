@@ -62,11 +62,12 @@ class CarreraController extends Controller
     public function show(Carrera $carrera)
     {
         $carreras = Carrera::paginate(10);
+        $deptos = Depto::all(); // Cargar los departamentos
         $accion = 'D';
         $txtbtn = 'Confirme Eliminación';
         $des = 'disabled';
 
-        return view('carreras.frm', compact('carreras', 'carrera', 'accion', 'txtbtn', 'des'));
+        return view('carreras.frm', compact('carreras', 'carrera', 'accion', 'txtbtn', 'des', 'deptos'));
     }
 
     /**
