@@ -38,4 +38,16 @@
   <button type="submit" class="btn btn-danger">Confirma la Eliminación</button>
   <a href="{{ route('deptos.index') }}" class="btn btn-primary">Regresar</a>
 </form>
+@if (session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
+
+@if (session('error'))
+    <div class="alert alert-danger">
+        {{ session('error') }}
+    </div>
+@endif
+
 @endsection
