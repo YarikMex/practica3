@@ -36,12 +36,14 @@ class DeptoController extends Controller
 
     public function store(Request $request)
     {
-        // Validar los datos del formulario
-        $validatedData = $request->validate($this->val);
-        
-        // Crear un nuevo registro de Departamento
-        Depto::create($validatedData);
-
+        $validatedData = $request->validate([
+            'nombredepto' => 'required|string|max:100|unique:deptos,nombredepto',
+            'nombremediano' => 'required|string|max:100|unique:deptos,nombremediano',
+            'nombrecorto' => 'required|string|max:100|unique:deptos,nombrecorto',
+        ]);
+    
+        Depto::create($validatedData); // Crear un nuevo departamento
+    
         return redirect()->route('deptos.index')->with('success', 'Departamento creado correctamente.');
     }
 
