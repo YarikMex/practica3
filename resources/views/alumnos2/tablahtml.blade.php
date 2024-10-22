@@ -30,7 +30,7 @@
                 <td>{{ $alumn->apellidopaterno }}</td>
                 <td>{{ $alumn->apellidomaterno }}</td>
                 <td>{{ $alumn->sexo == 'M' ? 'Masculino' : 'Femenino' }}</td>
-                <td>{{ $alumn->carrera->depto->nombredepto }}</td> 
+                <td>{{ $alumn->carrera->depto->nombredepto ?? 'Sin Departamento' }}</td> 
                <td>{{ $alumn->carrera->nombrecarrera }}</td> 
                 {{-- <td>{{ $alumn->carrera_id }}</td> <!-- Mostrar el ID de la carrera --> --}}
                 <td><a href="{{route('alumnos.edit',$alumn->id)}}" class="btn button btn-success">Editar</a></td>
