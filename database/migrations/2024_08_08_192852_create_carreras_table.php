@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string("nombrecarrera",100)->unique();
             $table->string("nombremediano",100)->unique();
             $table->string("nombrecorto",100)->unique();
-            $table->foreignId("depto_id")->constrained()->onDelete('cascade'); // Aquí se agrega la relación con deptos
+            $table->foreignId("depto_id")->constrained('deptos', 'idDepto')->onDelete('cascade'); // Clave foránea correcta
             
             $table->timestamps();
         });
