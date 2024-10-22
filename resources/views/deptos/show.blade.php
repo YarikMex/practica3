@@ -8,8 +8,9 @@
 {{-- CONTENIDO2 --}}
 @section('contenido2')
 <h1>Ver Todos los Datos del Departamento</h1>
-<form action="{{route('deptos.destroy', $depto)}}" method="POST">
+<form action="{{ route('deptos.destroy', $depto) }}" method="POST">
   @csrf
+  @method('DELETE') <!-- Asegúrate de agregar @method('DELETE') -->
 
   <!-- Nombre Completo -->
   <div class="row mb-3">
@@ -38,16 +39,5 @@
   <button type="submit" class="btn btn-danger">Confirma la Eliminación</button>
   <a href="{{ route('deptos.index') }}" class="btn btn-primary">Regresar</a>
 </form>
-@if (session('success'))
-    <div class="alert alert-success">
-        {{ session('success') }}
-    </div>
-@endif
-
-@if (session('error'))
-    <div class="alert alert-danger">
-        {{ session('error') }}
-    </div>
-@endif
 
 @endsection

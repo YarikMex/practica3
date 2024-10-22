@@ -113,15 +113,8 @@ class DeptoController extends Controller
      */
     public function destroy(Depto $depto)
     {
-        try {
-            // Intentar eliminar el departamento
-            $depto->delete();
-            return redirect()->route('deptos.index')->with('success', 'Departamento eliminado correctamente.');
-        } catch (\Exception $e) {
-            // Capturar el error y redirigir con el mensaje de error
-            return redirect()->route('deptos.index')->with('error', 'Error al eliminar el departamento: ' . $e->getMessage());
-        }
+        $depto->delete(); // Elimina el registro
+        return redirect()->route('deptos.index')->with('success', 'Departamento eliminado correctamente.');
     }
-    
     
 }
