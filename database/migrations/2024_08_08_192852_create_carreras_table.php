@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('carreras', function (Blueprint $table) {
             $table->id();
-            $table->string("idcarrera",15)->unique();
             $table->string("nombrecarrera",100)->unique();
             $table->string("nombremediano",100)->unique();
             $table->string("nombrecorto",100)->unique();
