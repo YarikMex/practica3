@@ -166,7 +166,7 @@ Route::get('/deptos.index', [DeptoController::class, 'index'])->name('deptos.ind
 
 Route::get('/deptos.create', [DeptoController::class, 'create'])->name('deptos.create');
 Route::post('/deptos', [DeptoController::class, 'store'])->name('deptos.store');
-Route::get('/deptos.edit.{depto}', [DeptoController::class, 'edit'])->name('deptos.edit');
+Route::get('/deptos/{depto}/edit', [DeptoController::class, 'edit'])->name('deptos.edit');
 Route::post('/deptos.update/{depto}', [DeptoController::class, 'update'])->name('deptos.update');
 Route::post('/deptos/{depto}/destroy', [DeptoController::class, 'destroy'])->name('deptos.destroy');
 
