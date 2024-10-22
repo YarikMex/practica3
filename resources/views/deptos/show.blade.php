@@ -10,7 +10,7 @@
 <h1>Ver Todos los Datos del Departamento</h1>
 <form action="{{ route('deptos.destroy', $depto->idDepto) }}" method="POST"> <!-- Usamos $depto->idDepto para el ID correcto -->
     @csrf
-    <!-- Aquí no usamos @method('DELETE') porque estamos usando POST -->
+    
     
     <!-- Nombre Completo -->
     <div class="row mb-3">
