@@ -34,18 +34,15 @@ class CarreraController extends Controller
      */
     public function create()
     {
-        $carreras = Carrera::paginate(10);
+        $carreras = Carrera::paginate(10); 
+        $depto = Depto::all(); // Obtener todos los departamentos
         $carrera = new Carrera;
         $accion = 'C';
         $txtbtn = 'Guardar';
         $des = '';
-        
-        // Obtener todos los departamentos disponibles para el dropdown
-        $deptos = Depto::all();
-
-        return view('carreras.frm', compact('carreras', 'carrera', 'accion', 'txtbtn', 'des', 'deptos'));
+    
+        return view('carreras.frm', compact('carreras', 'carrera', 'accion', 'txtbtn', 'des', 'depto'));
     }
-
     /**
      * Guardar una nueva carrera
      */
@@ -78,13 +75,11 @@ class CarreraController extends Controller
     public function edit(Carrera $carrera)
     {
         $carreras = Carrera::paginate(10);
+        $deptos = Depto::all(); // Obtener todos los departamentos
         $accion = 'E';
         $txtbtn = 'Actualizar';
         $des = '';
-
-        // Obtener todos los departamentos disponibles para el dropdown
-        $deptos = Depto::all();
-
+    
         return view('carreras.frm', compact('carreras', 'carrera', 'accion', 'txtbtn', 'des', 'deptos'));
     }
 
