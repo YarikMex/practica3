@@ -14,6 +14,6 @@ class DatabaseSeeder extends Seeder
         Carrera::factory(5)->create();
 
         // Luego, crear los alumnos
-        Alumno::factory(1o)->create();
+        Alumno::factory(8)->create();
     }
 }
