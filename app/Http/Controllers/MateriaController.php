@@ -28,15 +28,16 @@ class MateriaController extends Controller
     }
 
     public function create()
-    {
-        $reticulas = Reticula::all();
-        $materia = new Materia;
-        $accion = 'C';
-        $txtbtn = 'Guardar';
-        $des = '';
+{
+    $materias = Materia::paginate(10);  // Aquí obtienes las materias para la tabla
+    $reticulas = Reticula::all();  // Las retículas para el formulario
+    $materia = new Materia;
+    $accion = 'C';
+    $txtbtn = 'Guardar';
+    $des = '';
 
-        return view('materias.frm', compact('materia', 'accion', 'txtbtn', 'des', 'reticulas'));
-    }
+    return view('materias.frm', compact('materias', 'materia', 'reticulas', 'accion', 'txtbtn', 'des'));
+}
 
     public function store(Request $request)
     {
@@ -58,14 +59,14 @@ class MateriaController extends Controller
 
     public function edit(Materia $materia)
     {
-        $reticulas = Reticula::all();
+        $materias = Materia::paginate(10);  // Aquí obtienes las materias para la tabla
+        $reticulas = Reticula::all();  // Las retículas para el formulario
         $accion = 'E';
         $txtbtn = 'Actualizar';
         $des = '';
-
-        return view('materias.frm', compact('materia', 'accion', 'txtbtn', 'des', 'reticulas'));
+    
+        return view('materias.frm', compact('materias', 'materia', 'reticulas', 'accion', 'txtbtn', 'des'));
     }
-
     public function update(Request $request, Materia $materia)
     {
         $validatedData = $request->validate($this->val);
