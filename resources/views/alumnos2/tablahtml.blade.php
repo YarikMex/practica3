@@ -7,15 +7,12 @@
     <table class="table table-primary">
         <thead>
             <tr>
-                <th scope="col">ID</th>
                 <th scope="col">Número de Control</th>
                 <th scope="col">Nombre</th>
                 <th scope="col">Apellido Paterno</th>
                 <th scope="col">Apellido Materno</th>
                 <th scope="col">Sexo</th>
-                <th scope="col">Depto</th>
-                
-                <th scope="col">Carrera </th> <!-- Mostrar el ID de la carrera -->
+                <th scope="col">Carrera</th> <!-- Mostrar el nombre de la carrera -->
                 <th>EDITAR</th>
                 <th>ELIMINAR</th>
                 <th>VER</th>
@@ -24,15 +21,12 @@
         <tbody>
             @foreach ($alumnos as $alumn)
             <tr>
-                <td scope="row">{{ $alumn->id }}</td>
                 <td>{{ $alumn->noctrl }}</td>
                 <td>{{ $alumn->nombre }}</td>
                 <td>{{ $alumn->apellidopaterno }}</td>
                 <td>{{ $alumn->apellidomaterno }}</td>
                 <td>{{ $alumn->sexo == 'M' ? 'Masculino' : 'Femenino' }}</td>
-                {{-- <td>{{ $alumn->carrera->depto->nombredepto ?? 'Sin Departamento' }}</td>  --}}
-               <td>{{ $alumn->carrera->nombrecarrera }}</td> 
-                {{-- <td>{{ $alumn->carrera_id }}</td> <!-- Mostrar el ID de la carrera --> --}}
+                <td>{{ $alumn->carrera->nombrecarrera }}</td>
                 <td><a href="{{route('alumnos.edit',$alumn->id)}}" class="btn button btn-success">Editar</a></td>
                 <td><a href="{{route('alumnos.show',$alumn->id)}}" class="btn button btn-danger">Eliminar</a></td>
                 <td><a href="{{route('alumnos.show',$alumn->id)}}" class="btn button btn-primary">Ver</a></td>
