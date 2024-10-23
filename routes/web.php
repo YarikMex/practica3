@@ -7,6 +7,7 @@ use App\Http\Controllers\AlumnoController;
 use App\Http\Controllers\PuestoController;
 use App\Http\Controllers\CarreraController;
 use App\Http\Controllers\MateriaController;
+use App\Http\Controllers\PeriodoController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReticulaController;
 
@@ -201,6 +202,15 @@ Route::get('/materias/{materia}/edit', [MateriaController::class, 'edit'])->name
 Route::post('/materias/{materia}', [MateriaController::class, 'update'])->name('materias.update');
 Route::post('/materias/{materia}/destroy', [MateriaController::class, 'destroy'])->name('materias.destroy');
 Route::get('/materias/{materia}', [MateriaController::class, 'show'])->name('materias.show');
+
+// Rutas de Periodos
+Route::get('/periodos', [PeriodoController::class, 'index'])->name('periodos.index');
+Route::get('/periodos/create', [PeriodoController::class, 'create'])->name('periodos.create');
+Route::post('/periodos', [PeriodoController::class, 'store'])->name('periodos.store');
+Route::get('/periodos/{periodo}/edit', [PeriodoController::class, 'edit'])->name('periodos.edit');
+Route::post('/periodos/{periodo}', [PeriodoController::class, 'update'])->name('periodos.update');
+Route::post('/periodos/{periodo}/destroy', [PeriodoController::class, 'destroy'])->name('periodos.destroy');
+Route::get('/periodos/{periodo}', [PeriodoController::class, 'show'])->name('periodos.show');
 
 
 Route::get('/dashboard', function () {
