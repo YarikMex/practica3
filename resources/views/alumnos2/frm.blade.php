@@ -89,7 +89,7 @@
         </div>
     </div>
 
-  <!-- Carrera (relación con tabla de carrera) -->
+<!-- Carrera (relación con tabla de carrera) -->
 @if ($accion != 'D')
 <div class="row mb-3">
     <label for="carrera_id" class="col-sm-2 col-form-label">Carrera</label>
@@ -97,7 +97,7 @@
         <select class="form-select" id="carrera_id" name="carrera_id" required {{ $des }}>
             @foreach ($carreras as $carrera)
                 <option value="{{ $carrera->id }}" {{ old('carrera_id', $alumno->carrera_id ?? '') == $carrera->id ? 'selected' : '' }}>
-                    {{ $carrera->nombre }}
+                    {{ $carrera->nombrecarrera }} <!-- Asegúrate de usar 'nombrecarrera' en lugar de 'nombre' -->
                 </option>
             @endforeach
         </select>
