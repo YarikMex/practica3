@@ -12,9 +12,9 @@
                 <th scope="col">Descripción Corta</th>
                 <th scope="col">Fecha de Inicio</th>
                 <th scope="col">Fecha de Fin</th>
-                <th>EDITAR</th>
-                <th>ELIMINAR</th>
-                <th>VER</th>
+                <th scope="col">EDITAR</th>
+                <th scope="col">ELIMINAR</th>
+                <th scope="col">VER</th>
             </tr>
         </thead>
         <tbody>
@@ -26,11 +26,16 @@
                 <td>{{ $periodo->FechaIni }}</td>
                 <td>{{ $periodo->FechaFin }}</td>
                 <td><a href="{{ route('periodos.edit', $periodo->id) }}" class="btn button btn-success">Editar</a></td>
-                <td><a href="{{ route('periodos.show', $periodo->id) }}" class="btn button btn-danger">Eliminar</a></td>
+                <td>
+                    <form action="{{ route('periodos.destroy', $periodo->id) }}" method="POST">
+                        @csrf
+                        <button type="submit" class="btn button btn-danger">Eliminar</button>
+                    </form>
+                </td>
                 <td><a href="{{ route('periodos.show', $periodo->id) }}" class="btn button btn-primary">Ver</a></td>
             </tr>
             @endforeach
         </tbody>
     </table>
-    {{ $periodos->links() }}
+    {{ $periodos->links() }}  {{-- Paginación --}}
 </div>

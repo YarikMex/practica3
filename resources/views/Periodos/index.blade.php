@@ -2,5 +2,5 @@
 
 {{-- CONTENIDO1 --}}
 @section('contenido1')
-    @include('periodos.tablahtml')
+    @include('periodos.tablahtml')  {{-- Aquí se incluye la tabla de periodos --}}
 @endsection
