@@ -2,17 +2,18 @@
 
 namespace Database\Seeders;
 
+use App\Models\Carrera;
 use App\Models\Alumno;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class AlumnoSeeder extends Seeder
+class DatabaseSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
     public function run(): void
     {
-        Alumno::factory(10)->create();
+        // Crear varias carreras primero
+        Carrera::factory(5)->create();
+
+        // Luego, crear los alumnos
+        Alumno::factory(5)->create();
     }
 }
