@@ -2,12 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\Carrera;
 use App\Models\Reticula;
+use App\Models\Carrera;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
+/**
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Reticula>
+ */
 class ReticulaFactory extends Factory
 {
+    protected $model = Reticula::class;
+
     /**
      * Define the model's default state.
      *
@@ -16,9 +21,9 @@ class ReticulaFactory extends Factory
     public function definition(): array
     {
         return [
-            'descripcion' => $this->faker->sentence(5),
+            'descripcion' => $this->faker->text(50),
             'fechaEnVigor' => $this->faker->date(),
-            'idCarrera' => Carrera::factory(),
+            'idCarrera' => Carrera::inRandomOrder()->first()->id, // Asocia aleatoriamente con una carrera existente
         ];
     }
 }
