@@ -1,10 +1,13 @@
 @extends('inicio2')
 
+{{-- CONTENIDO1 --}}
 @section('contenido1')
     @include('reticulas.tablahtml')
 @endsection
 
+{{-- CONTENIDO2 --}}
 @section('contenido2')
+
 <h1>Editar Retícula</h1>
 
 <form action="{{ route('reticulas.update', $reticula->id) }}" method="POST">
@@ -44,4 +47,5 @@
         </div>
     </div>
 </form>
+
 @endsection

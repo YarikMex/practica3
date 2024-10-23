@@ -1,10 +1,13 @@
 @extends('inicio2')
 
+{{-- CONTENIDO1 --}}
 @section('contenido1')
     @include('reticulas.tablahtml')
 @endsection
 
+{{-- CONTENIDO2 --}}
 @section('contenido2')
+
 <h1>Insertar Retícula</h1>
 
 <form action="{{ route('reticulas.store') }}" method="POST">
@@ -38,7 +41,7 @@
         <div class="col-sm-10">
           <select class="form-select" id="idCarrera" name="idCarrera" required>
             @foreach ($carreras as $carrera)
-              <option value="{{ $carrera->id }}" {{ old('idCarrera') == $carrera->id ? 'selected' : '' }}>{{ $carrera->nombreCarrera }}</option>
+              <option value="{{ $carrera->id }}">{{ $carrera->nombreCarrera }}</option>
             @endforeach
           </select>
           @error("idCarrera")
@@ -52,5 +55,7 @@
           <button type="submit" class="btn btn-primary">Guardar</button>
         </div>
     </div>
+
 </form>
+
 @endsection

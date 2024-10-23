@@ -5,43 +5,51 @@
 @endsection
 
 @section('contenido2')
-<h1>{{ $accion == 'C' ? 'Insertar Retícula' : ($accion == 'E' ? 'Editar Retícula' : 'Eliminar Retícula') }}</h1>
+    <h1>{{ $accion == 'C' ? 'Insertar Retícula' : ($accion == 'E' ? 'Editar Retícula' : 'Eliminar Retícula') }}</h1>
 
-<form action="{{ $accion == 'C' ? route('reticulas.store') : ($accion == 'E' ? route('reticulas.update', $reticula->id) : route('reticulas.destroy', $reticula)) }}" method="POST">
-    @csrf
-
-    <!-- Descripción -->
-    <div class="row mb-3">
-        <label for="descripcion" class="col-sm-2 col-form-label">Descripción</label>
-        <div class="col-sm-10">
-          <input type="text" class="form-control" id="descripcion" name="descripcion" required value="{{ old('descripcion', $reticula->descripcion ?? '') }}" {{ $des }}>
+    <form action="{{ $accion == 'C' ? route('reticulas.store') : ($accion == 'E' ? route('reticulas.update', $reticula->id) : route('reticulas.destroy', $reticula)) }}" method="POST">
+        @csrf
+        <!-- Descripción -->
+        <div class="row mb-3">
+            <label for="descripcion" class="col-sm-2 col-form-label">Descripción</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="descripcion" name="descripcion" required value="{{ old('descripcion', $reticula->descripcion ?? '') }}" {{ $des }}>
+              @error("descripcion")
+              <p class="text-danger">Error en: {{ $message }}</p>
+              @enderror
+            </div>
         </div>
-    </div>
 
-    <!-- Fecha en Vigor -->
-    <div class="row mb-3">
-        <label for="fechaEnVigor" class="col-sm-2 col-form-label">Fecha en Vigor</label>
-        <div class="col-sm-10">
-          <input type="date" class="form-control" id="fechaEnVigor" name="fechaEnVigor" required value="{{ old('fechaEnVigor', $reticula->fechaEnVigor ?? '') }}" {{ $des }}>
+        <!-- Fecha en Vigor -->
+        <div class="row mb-3">
+            <label for="fechaEnVigor" class="col-sm-2 col-form-label">Fecha en Vigor</label>
+            <div class="col-sm-10">
+              <input type="date" class="form-control" id="fechaEnVigor" name="fechaEnVigor" required value="{{ old('fechaEnVigor', $reticula->fechaEnVigor ?? '') }}" {{ $des }}>
+              @error("fechaEnVigor")
+              <p class="text-danger">Error en: {{ $message }}</p>
+              @enderror
+            </div>
         </div>
-    </div>
 
-    <!-- Carrera -->
-    <div class="row mb-3">
-        <label for="idCarrera" class="col-sm-2 col-form-label">Carrera</label>
-        <div class="col-sm-10">
-          <select class="form-select" id="idCarrera" name="idCarrera" required {{ $des }}>
-            @foreach ($carreras as $carrera)
-              <option value="{{ $carrera->id }}" {{ old('idCarrera', $reticula->idCarrera ?? '') == $carrera->id ? 'selected' : '' }}>{{ $carrera->nombreCarrera }}</option>
-            @endforeach
-          </select>
+        <!-- Carrera -->
+        <div class="row mb-3">
+            <label for="idCarrera" class="col-sm-2 col-form-label">Carrera</label>
+            <div class="col-sm-10">
+              <select class="form-select" id="idCarrera" name="idCarrera" required {{ $des }}>
+                @foreach ($carreras as $carrera)
+                  <option value="{{ $carrera->id }}" {{ old('idCarrera', $reticula->idCarrera ?? '') == $carrera->id ? 'selected' : '' }}>{{ $carrera->nombreCarrera }}</option>
+                @endforeach
+              </select>
+              @error("idCarrera")
+              <p class="text-danger">Error en: {{ $message }}</p>
+              @enderror
+            </div>
         </div>
-    </div>
 
-    <div class="row mb-3">
-        <div class="col-sm-10 offset-sm-2">
-          <button type="submit" class="btn btn-primary">{{ $txtbtn }}</button>
+        <div class="row mb-3">
+            <div class="col-sm-10 offset-sm-2">
+              <button type="submit" class="btn btn-primary">{{ $txtbtn }}</button>
+            </div>
         </div>
-    </div>
-</form>
+    </form>
 @endsection
