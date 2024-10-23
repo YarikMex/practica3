@@ -25,12 +25,12 @@ class AlumnoController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        // Cargar la relación 'carrera' con los alumnos
-        $alumnos = Alumno::with('carrera')->paginate(10); 
-        return view('alumnos.index', compact('alumnos'));
-    }
+   public function index()
+{
+    // Cargar la relación 'carrera' con los alumnos
+    $alumnos = Alumno::with('carrera')->paginate(10); 
+    return view('alumnos2.index', compact('alumnos'));
+}
     
     /**
      * Show the form for creating a new resource.
