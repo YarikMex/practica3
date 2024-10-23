@@ -26,7 +26,8 @@
                 <td>{{ $alumn->apellidopaterno }}</td>
                 <td>{{ $alumn->apellidomaterno }}</td>
                 <td>{{ $alumn->sexo == 'M' ? 'Masculino' : 'Femenino' }}</td>
-                <td>{{ $alumn->carrera->nombrecarrera }}</td>
+                <td>{{ $alumn->carrera->nombrecarrera ?? 'Sin Carrera' }}</td>
+
                 <td><a href="{{route('alumnos.edit',$alumn->id)}}" class="btn button btn-success">Editar</a></td>
                 <td><a href="{{route('alumnos.show',$alumn->id)}}" class="btn button btn-danger">Eliminar</a></td>
                 <td><a href="{{route('alumnos.show',$alumn->id)}}" class="btn button btn-primary">Ver</a></td>

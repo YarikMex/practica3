@@ -21,8 +21,8 @@ class Alumno extends Model
     ];
 
     // Relación con Carrera
-    public function carrera(): BelongsTo
+    public function carrera()
     {
-        return $this->belongsTo(Carrera::class);
+        return $this->belongsTo(Carrera::class, 'carrera_id', 'id');
     }
 }
