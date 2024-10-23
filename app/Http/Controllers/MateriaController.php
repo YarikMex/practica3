@@ -49,13 +49,15 @@ class MateriaController extends Controller
 
     public function show(Materia $materia)
     {
-        $materias = Materia::paginate(10);
+        $materias = Materia::paginate(10);  // Para mostrar la tabla de materias
+        $reticulas = Reticula::all();  // Las retículas relacionadas para el formulario
         $accion = 'D';
         $txtbtn = 'Confirme Eliminación';
-        $des = 'disabled';
-
-        return view('materias.frm', compact('materias', 'materia', 'accion', 'txtbtn', 'des'));
+        $des = 'disabled';  // Deshabilitar los campos para evitar cambios
+    
+        return view('materias.frm', compact('materias', 'materia', 'reticulas', 'accion', 'txtbtn', 'des'));
     }
+    
 
     public function edit(Materia $materia)
     {
