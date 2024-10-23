@@ -97,7 +97,7 @@
         <select class="form-select" id="carrera_id" name="carrera_id" required {{ $des }}>
             @foreach ($carreras as $carrera)
                 <option value="{{ $carrera->id }}" {{ old('carrera_id', $alumno->carrera_id ?? '') == $carrera->id ? 'selected' : '' }}>
-                    {{ $carrera->nombrecarrera }} <!-- Asegúrate de usar 'nombrecarrera' en lugar de 'nombre' -->
+                    {{ $carrera->nombreCarrera }} <!-- Asegúrate de usar 'nombrecarrera' en lugar de 'nombre' -->
                 </option>
             @endforeach
         </select>

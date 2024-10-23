@@ -35,20 +35,15 @@ class AlumnoController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+  public function create()
     {
-        // Inicializar nuevo objeto de Alumno
-        $alumnos = Alumno::paginate(10); // Mantener la paginación en create
         $alumno = new Alumno;
         $carreras = Carrera::all(); // Obtener todas las carreras
         $accion = 'C';
         $txtbtn = 'Guardar';
         $des = '';
     
-        // Obtener todas las carreras
-        $carreras = Carrera::all();
-    
-        return view('alumnos2.frm', compact('alumnos','carreras', 'alumno', 'accion', 'txtbtn', 'des', 'carreras'));
+        return view('alumnos2.frm', compact('alumno', 'carreras', 'accion', 'txtbtn', 'des'));
     }
 
     /**
@@ -94,7 +89,7 @@ class AlumnoController extends Controller
         // Obtener todas las carreras
         $carreras = Carrera::all();
     
-        return view('alumnos2.frm', compact('alumnos','carreras', 'alumno', 'accion', 'txtbtn', 'des', 'carreras'));
+        return view('alumnos2.frm', compact('alumnos', 'alumno', 'accion', 'txtbtn', 'des', 'carreras'));
     }
     
     /**
