@@ -6,6 +6,7 @@ use App\Http\Controllers\PlazaController;
 use App\Http\Controllers\AlumnoController;
 use App\Http\Controllers\PuestoController;
 use App\Http\Controllers\CarreraController;
+use App\Http\Controllers\MateriaController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReticulaController;
 
@@ -191,6 +192,15 @@ Route::get('/reticulas/{reticula}/edit', [ReticulaController::class, 'edit'])->n
 Route::post('/reticulas/{reticula}', [ReticulaController::class, 'update'])->name('reticulas.update'); // Actualizar retícula
 Route::post('/reticulas/{reticula}/destroy', [ReticulaController::class, 'destroy'])->name('reticulas.destroy'); // Eliminar retícula
 Route::get('/reticulas/{reticula}', [ReticulaController::class, 'show'])->name('reticulas.show'); // Ver detalles de una retícula específica
+
+// Rutas de Materias en CRUD
+Route::get('/materias.index', [MateriaController::class, 'index'])->name('materias.index');
+Route::get('/materias.create', [MateriaController::class, 'create'])->name('materias.create');
+Route::post('/materias', [MateriaController::class, 'store'])->name('materias.store');
+Route::get('/materias/{materia}/edit', [MateriaController::class, 'edit'])->name('materias.edit');
+Route::post('/materias/{materia}', [MateriaController::class, 'update'])->name('materias.update');
+Route::post('/materias/{materia}/destroy', [MateriaController::class, 'destroy'])->name('materias.destroy');
+Route::get('/materias/{materia}', [MateriaController::class, 'show'])->name('materias.show');
 
 
 Route::get('/dashboard', function () {
