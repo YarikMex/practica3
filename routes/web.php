@@ -203,8 +203,7 @@ Route::post('/materias/{materia}', [MateriaController::class, 'update'])->name('
 Route::post('/materias/{materia}/destroy', [MateriaController::class, 'destroy'])->name('materias.destroy');
 Route::get('/materias/{materia}', [MateriaController::class, 'show'])->name('materias.show');
 
-// Rutas de Periodos en CRUD
-Route::get('/periodos', [PeriodoController::class, 'index'])->name('periodos.index');
+Route::get('/periodos.index', [PeriodoController::class, 'index'])->name('periodos.index');
 Route::get('/periodos/create', [PeriodoController::class, 'create'])->name('periodos.create');
 Route::post('/periodos', [PeriodoController::class, 'store'])->name('periodos.store');
 Route::get('/periodos/{periodo}/edit', [PeriodoController::class, 'edit'])->name('periodos.edit');
