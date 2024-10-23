@@ -5,9 +5,6 @@ namespace Database\Factories;
 use App\Models\Carrera;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Alumno>
- */
 class AlumnoFactory extends Factory
 {
     /**
@@ -18,15 +15,12 @@ class AlumnoFactory extends Factory
     public function definition(): array
     {
         return [
-
-            'noctrl' => fake()->unique()->bothify("#######"),
-            'nombre' => fake()->name(),
-            'apellidopaterno' => fake()->lastName(),
-            'apellidomaterno' => fake()->lastName(),
-            'sexo' => fake()->randomElement(['M','F']),
-         
-            'carrera_id' => Carrera::factory(),
-            //
+            'noctrl' => $this->faker->unique()->numerify('#######'),
+            'nombre' => $this->faker->name(),
+            'apellidopaterno' => $this->faker->lastName(),
+            'apellidomaterno' => $this->faker->lastName(),
+            'sexo' => $this->faker->randomElement(['M', 'F']),
+            'carrera_id' => Carrera::inRandomOrder()->first()->id,  // Relacionar con una carrera existente
         ];
     }
 }
