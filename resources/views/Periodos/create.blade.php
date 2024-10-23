@@ -2,88 +2,57 @@
 
 {{-- CONTENIDO1 --}}
 @section('contenido1')
-    @include('materias.tablahtml')
+    {{-- Si deseas mostrar la tabla aquí --}}
+    @include('periodos.tablahtml')
 @endsection
 
 {{-- CONTENIDO2 --}}
 @section('contenido2')
 
-<h1>Insertar Materia</h1>
+<h1>Insertar Periodo</h1>
 
-<form action="{{ route('materias.store') }}" method="POST">
+<form action="{{ route('periodos.store') }}" method="POST">
     @csrf
 
-    <!-- Nombre de la Materia -->
+    <!-- Periodo -->
     <div class="row mb-3">
-        <label for="nombreMateria" class="col-sm-2 col-form-label">Nombre de la Materia</label>
+        <label for="periodo" class="col-sm-2 col-form-label">Periodo</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control" id="nombreMateria" name="nombreMateria" required value="{{ old('nombreMateria') }}">
-          @error("nombreMateria")
+          <input type="text" class="form-control" id="periodo" name="periodo" required value="{{ old('periodo') }}">
+          @error("periodo")
           <p class="text-danger">Error en: {{ $message }}</p>
           @enderror
         </div>
     </div>
 
-    <!-- Nivel (L o M) -->
+    <!-- Descripción Corta -->
     <div class="row mb-3">
-        <label for="nivel" class="col-sm-2 col-form-label">Nivel</label>
+        <label for="descCorta" class="col-sm-2 col-form-label">Descripción Corta</label>
         <div class="col-sm-10">
-          <select class="form-select" id="nivel" name="nivel" required>
-            <option value="L" {{ old('nivel') == 'L' ? 'selected' : '' }}>Licenciatura</option>
-            <option value="M" {{ old('nivel') == 'M' ? 'selected' : '' }}>Maestría</option>
-          </select>
-          @error("nivel")
+          <input type="text" class="form-control" id="descCorta" name="descCorta" required value="{{ old('descCorta') }}">
+          @error("descCorta")
           <p class="text-danger">Error en: {{ $message }}</p>
           @enderror
         </div>
     </div>
 
-    <!-- Nombre Mediano -->
+    <!-- Fecha de Inicio -->
     <div class="row mb-3">
-        <label for="nombreMediano" class="col-sm-2 col-form-label">Nombre Mediano</label>
+        <label for="FechaIni" class="col-sm-2 col-form-label">Fecha de Inicio</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control" id="nombreMediano" name="nombreMediano" required value="{{ old('nombreMediano') }}">
-          @error("nombreMediano")
+          <input type="date" class="form-control" id="FechaIni" name="FechaIni" required value="{{ old('FechaIni') }}">
+          @error("FechaIni")
           <p class="text-danger">Error en: {{ $message }}</p>
           @enderror
         </div>
     </div>
 
-    <!-- Nombre Corto -->
+    <!-- Fecha de Fin -->
     <div class="row mb-3">
-        <label for="nombreCorto" class="col-sm-2 col-form-label">Nombre Corto</label>
+        <label for="FechaFin" class="col-sm-2 col-form-label">Fecha de Fin</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control" id="nombreCorto" name="nombreCorto" required value="{{ old('nombreCorto') }}">
-          @error("nombreCorto")
-          <p class="text-danger">Error en: {{ $message }}</p>
-          @enderror
-        </div>
-    </div>
-
-    <!-- Modalidad (P o E) -->
-    <div class="row mb-3">
-        <label for="modalidad" class="col-sm-2 col-form-label">Modalidad</label>
-        <div class="col-sm-10">
-          <select class="form-select" id="modalidad" name="modalidad" required>
-            <option value="P" {{ old('modalidad') == 'P' ? 'selected' : '' }}>Presencial</option>
-            <option value="E" {{ old('modalidad') == 'E' ? 'selected' : '' }}>En línea</option>
-          </select>
-          @error("modalidad")
-          <p class="text-danger">Error en: {{ $message }}</p>
-          @enderror
-        </div>
-    </div>
-
-    <!-- Retícula -->
-    <div class="row mb-3">
-        <label for="idReticula" class="col-sm-2 col-form-label">Retícula</label>
-        <div class="col-sm-10">
-          <select class="form-select" id="idReticula" name="idReticula" required>
-            @foreach ($reticulas as $reticula)
-              <option value="{{ $reticula->id }}" {{ old('idReticula') == $reticula->id ? 'selected' : '' }}>{{ $reticula->descripcion }}</option>
-            @endforeach
-          </select>
-          @error("idReticula")
+          <input type="date" class="form-control" id="FechaFin" name="FechaFin" required value="{{ old('FechaFin') }}">
+          @error("FechaFin")
           <p class="text-danger">Error en: {{ $message }}</p>
           @enderror
         </div>

@@ -1,6 +1,6 @@
 @extends('inicio2')
+{{-- @extends('plantillas/plantilla2') --}}
 
-{{-- CONTENIDO1 --}}
 @section('contenido1')
-    @include('periodos.tablahtml')  {{-- Aquí se incluye la tabla de periodos --}}
+    @include('periodos.tablahtml')
 @endsection
