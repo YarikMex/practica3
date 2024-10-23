@@ -7,6 +7,7 @@ use App\Http\Controllers\AlumnoController;
 use App\Http\Controllers\PuestoController;
 use App\Http\Controllers\CarreraController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ReticulaController;
 
 
 // Rutas de Inicio
@@ -180,6 +181,17 @@ Route::get('/carreras/{carrera}/edit', [CarreraController::class, 'edit'])->name
 Route::post('/carreras/{carrera}', [CarreraController::class, 'update'])->name('carreras.update');
 Route::post('/carreras/{carrera}/destroy', [CarreraController::class, 'destroy'])->name('carreras.destroy');
 Route::get('/carreras/{carrera}', [CarreraController::class, 'show'])->name('carreras.show');
+
+// Rutas para reticulas
+// Rutas de Retículas en CRUD
+Route::get('/reticulas.index', [ReticulaController::class, 'index'])->name('reticulas.index'); // Lista de retículas
+Route::get('/reticulas.create', [ReticulaController::class, 'create'])->name('reticulas.create'); // Formulario para crear nueva retícula
+Route::post('/reticulas', [ReticulaController::class, 'store'])->name('reticulas.store'); // Guardar nueva retícula
+Route::get('/reticulas/{reticula}/edit', [ReticulaController::class, 'edit'])->name('reticulas.edit'); // Formulario para editar retícula existente
+Route::post('/reticulas/{reticula}', [ReticulaController::class, 'update'])->name('reticulas.update'); // Actualizar retícula
+Route::post('/reticulas/{reticula}/destroy', [ReticulaController::class, 'destroy'])->name('reticulas.destroy'); // Eliminar retícula
+Route::get('/reticulas/{reticula}', [ReticulaController::class, 'show'])->name('reticulas.show'); // Ver detalles de una retícula específica
+
 
 Route::get('/dashboard', function () {
     return view('inicio2');
