@@ -47,12 +47,14 @@ class ReticulaController extends Controller
     public function show(Reticula $reticula)
     {
         $reticulas = Reticula::paginate(10);
+        $carreras = Carrera::all(); // Asegurarte de que las carreras se obtienen para pasarlas a la vista
         $accion = 'D';
         $txtbtn = 'Confirme Eliminación';
         $des = 'disabled';
-
-        return view('reticulas.frm', compact('reticulas', 'reticula', 'accion', 'txtbtn', 'des'));
+    
+        return view('reticulas.frm', compact('reticulas', 'reticula', 'accion', 'txtbtn', 'des', 'carreras'));
     }
+    
 
     public function edit(Reticula $reticula)
     {
