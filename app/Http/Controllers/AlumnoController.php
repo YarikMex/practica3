@@ -26,10 +26,10 @@ class AlumnoController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {   
-        // Obtener la lista de alumnos con paginación
-        $alumnos = Alumno::paginate(10); 
-        return view('alumnos2.index', compact('alumnos'));
+    {
+        // Cargar la relación 'carrera' con los alumnos
+        $alumnos = Alumno::with('carrera')->paginate(10); 
+        return view('alumnos.index', compact('alumnos'));
     }
     
     /**
