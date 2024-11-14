@@ -43,6 +43,12 @@ class PersonalsFactory extends Factory
         $personal = $personalList[$indice % count($personalList)];
         $indice++; // Incrementa el índice para la siguiente llamada
 
+        // Asegura que existe un departamento específico o lo crea
+        $depto = Depto::firstOrCreate(
+            ['nombredepto' => 'Ing. en Sistemas Computacionales'],
+            ['nombremediano' => 'Sistemas Comp.', 'nombrecorto' => 'ISC']
+        );
+
         return [
             'RFC' => $personal['RFC'],
             'nombres' => $personal['nombres'],
@@ -58,10 +64,7 @@ class PersonalsFactory extends Factory
             'doctit' => $this->faker->boolean(),
             'fechasingsep' => $this->faker->optional()->date(),
             'fechaisingins' => $this->faker->optional()->date(),
-            'depto_id' => Depto::firstOrCreate(
-                ['nombredepto' => 'Ing. en Sistemas Computacionales'],
-                ['nombremediano' => 'Sistemas Comp.', 'nombrecorto' => 'ISC']
-            )->id, // Utiliza o crea el departamento 'Ing. en Sistemas Computacionales'
+            'depto_id' => $depto->id, // Asegura que depto_id nunca sea nulo
             'puesto_id' => Puesto::inRandomOrder()->first()->id ?? Puesto::factory()->create()->id,  // Asocia aleatoriamente con un puesto existente o crea uno nuevo
         ];
     }
