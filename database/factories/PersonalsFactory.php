@@ -58,7 +58,10 @@ class PersonalsFactory extends Factory
             'doctit' => $this->faker->boolean(),
             'fechasingsep' => $this->faker->optional()->date(),
             'fechaisingins' => $this->faker->optional()->date(),
-            'depto_id' => Depto::inRandomOrder()->first()->id ?? Depto::factory()->create()->id,  // Asocia aleatoriamente con un departamento existente o crea uno nuevo
+            'depto_id' => Depto::firstOrCreate(
+                ['nombredepto' => 'Ing. en Sistemas Computacionales'],
+                ['nombremediano' => 'Sistemas Comp.', 'nombrecorto' => 'ISC']
+            )->id, // Utiliza o crea el departamento 'Ing. en Sistemas Computacionales'
             'puesto_id' => Puesto::inRandomOrder()->first()->id ?? Puesto::factory()->create()->id,  // Asocia aleatoriamente con un puesto existente o crea uno nuevo
         ];
     }
