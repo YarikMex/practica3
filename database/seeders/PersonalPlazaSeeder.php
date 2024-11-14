@@ -2,17 +2,16 @@
 
 namespace Database\Seeders;
 
-use App\Models\Alumno;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\PersonalPlaza;
 use Illuminate\Database\Seeder;
 
-class AlumnoSeeder extends Seeder
+class PersonalPlazaSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        Alumno::factory(20)->create();
+        PersonalPlaza::factory(10)->create();
     }
 }

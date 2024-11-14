@@ -46,5 +46,7 @@
           </div>
         </footer>
       </div>
+
+    @yield('scripts') <!-- Asegúrate de tener esta línea -->
 </body>
 </html>

@@ -13,9 +13,20 @@ class PeriodoFactory extends Factory
      */
     public function definition(): array
     {
+        // Arreglo con los valores específicos para el campo `periodo`
+        $periodos = [
+            'Ene-Jun 24',
+            'Ago-Dic 24',
+            'Ene-Jun 25',
+            'Ago-Dic 25',
+            'Ene-Jun 26',
+            'Ago-Dic 26',
+            'Ene-Jun 27'
+        ];
+
         return [
-            'periodo' => $this->faker->unique()->sentence(2),  // Generar un nombre de periodo único
-            'descCorta' => $this->faker->lexify('??????'),  // Generar una descripción corta de 6 caracteres
+            'periodo' => $this->faker->unique()->randomElement($periodos), // Selecciona un periodo del arreglo
+            'descCorta' => $this->faker->lexify('??????'),  // Descripción corta aleatoria
             'FechaIni' => $this->faker->date(),
             'FechaFin' => $this->faker->date(),
         ];

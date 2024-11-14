@@ -9,17 +9,14 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class PlazaFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
+    protected $model = \App\Models\Plaza::class;
+
     public function definition(): array
     {
+        $plazas = ['E3817', 'E3815', 'E3717', 'E3617', 'E3520']; // Valores específicos
+
         return [
-          
-            'nombrePlaza' => fake()->jobTitle(),
-           
+            'nombrePlaza' => $this->faker->randomElement($plazas), // Elimina el `unique()`
         ];
     }
 }

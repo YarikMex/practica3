@@ -16,11 +16,12 @@ class PuestoFactory extends Factory
      */
     public function definition(): array
     {
-        $tipos = ['Docente', 'Director', 'Administrativo'];
-        
+        // Arreglo con los tipos específicos
+        $tipos = ['Docentes', 'Dirección', 'No Docente', 'Auxiliar', 'Administrativo'];
+
         return [
             'nombrePuesto' => fake()->jobTitle(),
-            'tipoPuesto' => fake()->randomElement($tipos),
+            'tipoPuesto' => fake()->randomElement($tipos), // Selecciona un tipo del arreglo
         ];
     }
 }

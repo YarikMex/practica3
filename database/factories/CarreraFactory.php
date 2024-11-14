@@ -17,11 +17,28 @@ class CarreraFactory extends Factory
      */
     public function definition(): array
     {
+        static $indice = 0;
+
+        // Arreglo de datos específicos para las carreras
+        $carreras = [
+            ['Ingeniería en Sistemas Computacionales', 'Ing. en Sistemas', 'ISC'],
+            ['Ingeniería Electrónica', 'Ing. Eléctrica', 'IE'],
+            ['Ingeniería Mecánica', 'Ing. Mecánica', 'IM'],
+            ['Ingeniería Industrial', 'Ing. Industrial', 'II'],
+            ['Contaduría Pública', 'Cont. Pública', 'CP'],
+            ['Ingeniería en Gestión Empresarial', 'Ing. Gestión', 'IGE'],
+            ['Ingeniería en Mecatrónica', 'Ing. Mecatrónica', 'IMT'],
+        ];
+
+        // Selecciona la carrera en base al índice actual
+        $carrera = $carreras[$indice % count($carreras)];
+        $indice++; // Incrementa el índice para la próxima llamada
+
         return [
-            'nombreCarrera' => $this->faker->unique()->jobTitle(),  // Genera un nombre de carrera único
-            'nombreMediano' => $this->faker->lexify(str_repeat('?', 50)),  // Genera un nombre mediano aleatorio de 50 caracteres
-            'nombreCorto' => $this->faker->lexify(str_repeat('?', 5)),  // Genera un nombre corto de 5 caracteres
-            'depto_id' => Depto::factory(),  // Relación con el departamento, genera un departamento relacionado
+            'nombreCarrera' => $carrera[0],  // Nombre completo de la carrera
+            'nombreMediano' => $carrera[1],  // Nombre mediano de la carrera
+            'nombreCorto' => $carrera[2],    // Nombre corto de la carrera
+            'depto_id' => Depto::factory(),  // Asocia un departamento usando el factory de Depto
         ];
     }
 }

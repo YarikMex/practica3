@@ -16,11 +16,30 @@ class DeptoFactory extends Factory
      */
     public function definition(): array
     {
-        $titulo = fake()->unique()->jobTitle();
+        static $indice = 0;
+
+        // Lista de departamentos con nombres específicos
+        $deptos = [
+            ['Ing. en Sistemas Computacionales', 'Sistemas Comp.', 'ISC'],
+            ['Ing. en Electrónica', 'Electrónica', 'IE'],
+            ['Ing. Mecánica', 'Mecánica', 'IM'],
+            ['Ing. Industrial', 'Industrial', 'II'],
+            ['Ing. en Gestión Empresarial', 'Gestión Emp.', 'IGE'],
+            ['Contador Público', 'Contaduría', 'CP'],
+            ['Ing. Mecatrónica', 'Mecatrónica', 'IMT'],
+            ['Dirección', 'Dirección', 'DIR'],
+            ['Subdirección', 'Subdirección', 'SUB'],
+            ['Ciencias Básicas', 'Ciencias Bás.', 'CB'],
+        ];
+
+        // Selecciona el departamento en base al índice actual
+        $depto = $deptos[$indice % count($deptos)];
+        $indice++; // Incrementa el índice para la siguiente ejecución
+
         return [
-            "nombredepto" => $titulo,
-            "nombremediano" => fake()->unique()->lexify(str_repeat("?", 15)),
-            "nombrecorto" => substr($titulo, 0, 5),
+            'nombredepto' => $depto[0],     // Nombre completo del departamento
+            'nombremediano' => $depto[1],   // Nombre mediano del departamento
+            'nombrecorto' => $depto[2],     // Nombre corto del departamento
         ];
     }
 }

@@ -2,7 +2,6 @@
 
 namespace Database\Factories;
 
-use App\Models\Reticula;
 use App\Models\Carrera;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -11,8 +10,6 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class ReticulaFactory extends Factory
 {
-    protected $model = Reticula::class;
-
     /**
      * Define the model's default state.
      *
@@ -20,10 +17,27 @@ class ReticulaFactory extends Factory
      */
     public function definition(): array
     {
+        static $indice = 0;
+
+        // Lista de descripciones específicas para las retículas
+        $descripciones = [
+            'Retícula ISC',
+            'Retícula IE',
+            'Retícula IM',
+            'Retícula II',
+            'Retícula CP',
+            'Retícula IGE',
+            'Retícula IMT',
+        ];
+
+        // Selecciona la descripción de manera cíclica usando el índice
+        $descripcion = $descripciones[$indice % count($descripciones)];
+        $indice++; // Incrementa el índice para la próxima llamada
+
         return [
-            'descripcion' => $this->faker->text(50),
-            'fechaEnVigor' => $this->faker->date(),
-            'idCarrera' => Carrera::inRandomOrder()->first()->id, // Asocia aleatoriamente con una carrera existente
+            'descripcion' => $descripcion,  // Asigna la descripción específica
+            'fechaEnVigor' => $this->faker->date('Y-m-d'),  // Genera una fecha en vigor aleatoria
+            'idCarrera' => Carrera::inRandomOrder()->first()->id ?? Carrera::factory()->create()->id, // Asocia con una carrera existente o crea una nueva
         ];
     }
 }

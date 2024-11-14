@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\Plaza;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class PlazaSeeder extends Seeder
@@ -13,6 +12,10 @@ class PlazaSeeder extends Seeder
      */
     public function run(): void
     {
-        Plaza::factory(10)->create();
+        $plazas = ['E3817', 'E3815', 'E3717', 'E3617', 'E3520'];
+
+        foreach ($plazas as $nombre) {
+            Plaza::create(['nombrePlaza' => $nombre]);
+        }
     }
 }
